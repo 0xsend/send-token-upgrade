@@ -14,6 +14,10 @@ const config: HardhatUserConfig = {
         url: "https://mainnet.base.org",
       },
     },
+    anvil: {
+      url: "http://127.0.0.1:8546",
+      chainId: 845337,
+    },
     sepolia: {
       url: "https://sepolia.base.org",
       chainId: 84532,
