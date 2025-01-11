@@ -28,6 +28,17 @@ void (async function main() {
               ${baseSendMVPDeployer} \
               --value 10ether`;
 
+  // remove previous deployments
+  const artifactsDir = path.resolve(
+    __dirname,
+    "..",
+    "ignition",
+    "deployments",
+    "chain-845337"
+  );
+  info`Removing previous deployments...`;
+  await $`rm -rf ${artifactsDir}`;
+
   info`Deploying SendLockbox...`;
   await $`echo yes | bunx hardhat ignition deploy --network anvil ./ignition/modules/SendToken.ts`;
 
@@ -35,7 +46,9 @@ void (async function main() {
   await $`cast rpc --rpc-url ${RPC_URL} evm_setAutomine false`;
 
   info`Re-enable interval mining... ${$.env.ANVIL_BLOCK_TIME ?? "2"}`;
-  await $`cast rpc --rpc-url ${RPC_URL} evm_setIntervalMining ${$.env.ANVIL_BLOCK_TIME ?? "2"}`; // mimics Tiltfile default
+  await $`cast rpc --rpc-url ${RPC_URL} evm_setIntervalMining ${
+    $.env.ANVIL_BLOCK_TIME ?? "2"
+  }`; // mimics Tiltfile default
 
   console.log(chalk.green("Done!"));
 })();
