@@ -24,6 +24,7 @@
     "bin",
     "README.md",
     "package.json",
-    "tsconfig.json"
+    "tsconfig.json",
+    "hardhat.config.ts"
   ]
 }
