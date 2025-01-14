@@ -1,0 +1,1 @@
+0xsend = { token = "$npm_token", url = "https://registry.myorg.com/" }
