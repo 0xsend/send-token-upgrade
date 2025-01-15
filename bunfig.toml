@@ -1,2 +1,2 @@
 [install.scopes]
-"0xsend" = { token = "$npm_token", url = "https://npm.pkg.github.com/" }
+"0xsend" = { token = "$npm_token", url = "https://registry.npmjs.org/" }
